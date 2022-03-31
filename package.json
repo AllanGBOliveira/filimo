@@ -6,7 +6,8 @@
     "dev": "nuxt",
     "build": "nuxt build",
     "start": "nuxt start",
-    "generate": "nuxt generate"
+    "generate": "nuxt generate",
+    "deploy": "push-dir --dir=dist --branch=gh-pages --cleanup"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.36",
@@ -30,6 +31,7 @@
     "@nuxtjs/stylelint-module": "^4.1.0",
     "fibers": "^5.0.1",
     "node-sass": "^6.0.1",
+    "push-dir": "^0.4.1",
     "sass-loader": "^10.2.1",
     "stylelint": "^14.6.1"
   },
