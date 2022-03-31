@@ -1,0 +1,91 @@
+//-- Menu Fixed ------------------------------------------------------------------------------------------------//
+
+@keyframes menuFixed {
+  from { margin-top: -200px; }
+  to { margin-top: 0; }
+}
+
+@-webkit-keyframes menuFixed {
+  from { margin-top: -200px; }
+  to { margin-top: 0; }
+}
+
+//-- AppMenu Fixed ------------------------------------------------------------------------------------------------//
+
+@keyframes appMenuFixed {
+  from { margin-bottom: -200px; }
+  to { margin-bottom: 0; }
+}
+
+@-webkit-keyframes appMenuFixed {
+  from { margin-bottom: -200px; }
+  to { margin-bottom: 0; }
+}
+
+
+//-- Pulse icon map --------------------------------------------------------------------------------------------//
+
+@keyframes pulse {
+  to {
+    transform: scale(0.9);
+  }
+}
+
+@-webkit-keyframes pulse {
+  to {
+    transform: scale(0.9);
+  }
+}
+
+//-- Blink -----------------------------------------------------------------------------------------------------//
+
+@keyframes blink {
+  to {
+    visibility: hidden;
+  }
+}
+
+@-webkit-keyframes blink {
+  to {
+    visibility: hidden;
+  }
+}
+
+//-- Jump ------------------------------------------------------------------------------------------------------//
+
+@keyframes jump {
+  from { transform: translateY(-2px); }
+  to { transform: translateY(6px); }
+}
+
+@-webkit-keyframes jump {
+  from { transform: translateY(-2px); }
+  to { transform: translateY(6px); }
+}
+
+//-- Rotating --------------------------------------------------------------------------------------------------//
+
+@keyframes rotating {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@-webkit-keyframes rotating {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+//-- Transition Fade -------------------------------------------------------------------------------------------//
+
+.fade-enter-active {
+  transition: opacity 0.5s;
+}
+
+.fade-leave-active {
+  opacity: 0;
+}
+
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
+}
