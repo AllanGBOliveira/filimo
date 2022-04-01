@@ -27,7 +27,15 @@ body::-webkit-scrollbar-thumb {
 
 body {
   font-family: $font;
+}
+main {
+  height: 3878px;
+}
+.test {
   background: linear-gradient(to bottom, $color-2, $color-3);
+  height: 100%;
+  display: block;
+  width: 100%;
 }
 
 .avatar-btn {
@@ -66,10 +74,6 @@ body {
   }
 }
 
-main {
-  height: 200vh;
-}
-
 @include media-down(lg) {
   
   .avatar-btn {
@@ -88,11 +92,94 @@ main {
   border-radius: 10px;
   text-align: center;
   line-height: 1;
+  user-select: none;
+  transition: all .3s ease-in-out;
+  box-shadow:  0 3px 6px rgba(0, 0, 0, 0.16);
+  border: 0;
+
   svg {
     margin-left: 14px ;
+  }
+  .rate-star {
+    margin-left: 14px ;
+    svg {
+      margin: 0;
+    }
   }
 
   &:hover {
     color: $color-2;
+  }
+
+  &.wish-list {
+    position: relative;
+    input {
+      position: absolute;
+      width: 0;
+      height: 0;
+    }
+  }
+
+  &.transparent {
+    backdrop-filter: blur(33px);
+    --webkit-backdrop-filter: blur(33px);
+    background-color: rgba(255, 255, 255, 0.15);
+    font-weight: 500;
+
+    &:hover {
+      background-color: rgba($color: $color-1, $alpha: .16);
+      color: darken($color: $color-1, $amount: 10%);
+    }
+  }
+}
+
+.rate-star {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  .rate-star-count {
+    display: inline-block;
+    font-size: 28px;
+    font-family: $font-2;
+    font-weight: 600;
+    margin-right: 10px;
+    color: $color-1;
+  }
+  .b-rating {
+    background-color: transparent;
+    padding: 0;
+    height: auto;
+
+    .b-rating-star {
+      color: $color-1;
+      font-size: 16px;
+      padding: 0 2px;
+    }
+  }
+
+  .imdb-badge {
+    margin-left: 19px;
+    display: inline-flex;
+    font-size: 12px;
+    font-weight: bold;
+    font-family: $font-2;
+    color: $color-2;
+    background-color: $color-1;
+    border-radius: 5px;
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+    padding: 8px;
+    
+    span {
+      display: inline-block;
+    }
+
+    img {
+      margin-left: 7px;
+      width: 33px;
+      display: inline-block;
+    }
   }
 }

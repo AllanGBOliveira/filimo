@@ -75,8 +75,9 @@ export default {
     icons: {
       solid: ['faBars', 'faSearch', 'faPhone', 'faEnvelope', 'faTimes', 'faCheck', 'faExclamationCircle', 'faUndo', 'faSpinner',
         'faCaretUp', 'faCaretDown', 'faCaretLeft', 'faCaretRight', 'faExclamationTriangle', 'faMapMarkerAlt', 'faAngleDown',
-        'faImages', 'faPlay', 'faHome', 'faList'],
-      brands: ['faFacebookSquare', 'faInstagram', 'faTwitter', 'faLinkedin', 'faYoutube', 'faWhatsapp', 'faWaze','faImdb']
+        'faImages', 'faPlay', 'faHome', 'faList', 'faBookmark','faCloudDownloadAlt'],
+      brands: ['faFacebookSquare', 'faInstagram', 'faTwitter', 'faLinkedin', 'faYoutube', 'faWhatsapp', 'faWaze','faImdb'],
+      regular: ['faBookmark']
     }
   },
 

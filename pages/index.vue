@@ -46,9 +46,29 @@
           <nuxt-link class="btn-default" :to="{path:'movies-and-series/' + content.highlight.slug }">
           <span>Play</span>  <font-awesome-icon :icon="['fas', 'play']"  />
           </nuxt-link>
+          
+          <label for="wish-list" class="wish-list btn-default transparent">
+              <input type="checkbox" name="wish-list" id="wish-list" v-model="wishList">
+              <span>Add to Wishlist</span> <font-awesome-icon :icon="[wishList?'fas':'far', 'bookmark']" />
+          </label>
+
+          <a href="img/thumb.png" class="btn-default transparent" download>
+             <span>Download</span>  <font-awesome-icon :icon="['fas', 'cloud-download-alt']"  />
+          </a>
+
+          <div class="btn-default transparent">
+            <span>Your Rate</span>           
+            <div class="rate-star">
+             <b-form-rating  v-model="clientRate" no-border inline  precision="1"></b-form-rating>
+            </div>
+          </div>
         </div>
       </div>
     </div>
+  </section>
+
+  <section class="test">
+
   </section>
  </main>
 </template>
@@ -64,11 +84,13 @@ export default {
 
   data() {
     return {
+      clientRate: null,
       rating: 0,
       formatedTime: {
        time: '',
        format: '',
       },
+      wishList: false,
     }
   },
 

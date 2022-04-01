@@ -88,54 +88,7 @@
       }
 
       .rate-star {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
         margin-bottom: 29px;
-
-        .rate-star-count {
-          display: inline-block;
-          font-size: 28px;
-          font-family: $font-2;
-          font-weight: 600;
-          margin-right: 10px;
-          color: $color-1;
-        }
-        .b-rating {
-          background-color: transparent;
-          padding: 0;
-
-          .b-rating-star {
-            color: $color-1;
-            font-size: 16px;
-            padding: 0 2px;
-          }
-        }
-
-        .imdb-badge {
-          margin-left: 19px;
-          display: inline-flex;
-          font-size: 12px;
-          font-weight: bold;
-          font-family: $font-2;
-          color: $color-2;
-          background-color: $color-1;
-          border-radius: 5px;
-          overflow: hidden;
-          justify-content: center;
-          align-items: center;
-          padding: 8px;
-          
-          span {
-            display: inline-block;
-          }
-
-          img {
-            margin-left: 7px;
-            width: 33px;
-            display: inline-block;
-          }
-        }
       }
 
       .time-local {
@@ -183,8 +136,35 @@
     }
 
     .action-buttons{
+      margin-top: 16px;
       display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
       width: 100%;
+      border-top: 1px solid rgba(white, 0.15);
+      padding-top: 33.5px;
+      
+      .btn-default {
+        &:first-child {
+          margin-right: 9px;
+          position: relative;
+
+          &::after {
+            content: "";
+            position: absolute;
+            display: block;
+            width: 1px;
+            height: 55%;
+            background-color: rgba(white, 0.15);
+            right: -10px;
+            top: 50%;
+            transform: translateY(-50%);
+          }
+        }
+        &:last-child {
+          margin-left: auto;
+        }
+      }
     }
   }
 }
@@ -218,15 +198,23 @@
       .content {
         width: 100%;
       }
+
+      .action-buttons {
+        .btn-default {
+          &:last-child {
+            margin-left: 0;
+          }
+        }
+      }
     }
   }
 }
 
 
-// @include media-down(lg) {
-//  .parallax {
-//   &-img {
-//     background-attachment: scroll;
-//   }
-//  }
-// }
+@include media-down(lg) {
+ .parallax {
+  &-img {
+    background-attachment: scroll;
+  }
+ }
+}
