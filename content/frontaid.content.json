@@ -7,20 +7,20 @@
     "rate": 9.4,
     "imdbRate": 9.5,
     "time": "Sun Dec 17 1995 00:43:00 GMT-0200 (Horário de Verão de Brasília)",
-   "categories": [
+    "categories": [
       {
         "name": "Action",
         "slug": "action"
       },
-       {
+      {
         "name": "Crime",
         "slug": "crime"
       },
-       {
+      {
         "name": "Drama",
         "slug": "drama"
       },
-       {
+      {
         "name": "Fantasy",
         "slug": "fantasy"
       },
@@ -31,5 +31,25 @@
     ],
     "desc": "A high school chemistry teacher diagnosed with inoperable lung cancer turns to manufacturing and selling methamphetamine in order to secure his family's future.",
     "slug": "breaking-bad"
+  },
+  "about": {
+    "thumb": "img/about-thumb.png",
+    "summery": "A high school chemistry teacher diagnosed with inoperable lung cancer turns to manufacturing and selling methamphetamine in order to secure his family's future.",
+    "creator": "Vince Gilligan",
+    "casts": [
+      "Bryan Cranston",
+      "Anna Gunn",
+      "Aaron Paul",
+      "Dean Norris",
+      "Betsy Brandt",
+      "RJ Mitte",
+      "Bob Odenkirk",
+      "Giancarlo Esposito",
+      "Jonathan Banks",
+      "Laura Fraser",
+      "Jesse Plemons"
+    ],
+    "trailer": "https://www.youtube.com/watch?v=yAAphfWE3Vs",
+    "slug": "breaking-bad" 
   }
 }

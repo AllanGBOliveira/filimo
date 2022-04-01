@@ -27,17 +27,15 @@ body::-webkit-scrollbar-thumb {
 
 body {
   font-family: $font;
+  font-weight: normal;
+  // height: 3878px;
 }
 main {
   height: 3878px;
-}
-.test {
-  background: linear-gradient(to bottom, $color-2, $color-3);
-  height: 100%;
   display: block;
-  width: 100%;
+  background: linear-gradient(to bottom, $color-2 862px, $color-3);
+  position: relative;
 }
-
 .avatar-btn {
   padding: 0;
   margin: 0;
@@ -182,4 +180,8 @@ main {
       display: inline-block;
     }
   }
+}
+
+.cool-lightbox {
+  z-index: 9999;
 }

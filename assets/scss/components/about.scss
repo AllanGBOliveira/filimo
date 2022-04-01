@@ -1,0 +1,121 @@
+.my-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+.thumb {
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+  border-radius: 15px;
+  position: relative;
+  max-width: 100%;
+  width: 34%;
+  max-height: 229px;
+  display: block;
+  outline: none;
+  // aspect-ratio: 389/229;
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    display: block;
+    background-color: rgba($color: #000000, $alpha: 0.17);
+    z-index: 2;
+    transition: all .35s ease-in-out;
+  }
+
+  &::after {
+    content: "\f04b";
+    font-family: $icon;
+    font-weight: 900;
+    position: absolute;
+    z-index: 3;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    font-size: 16px;
+    color: $color-1;
+    padding: 15px 16px 15px 17px;
+    background-color: rgba($color: #CECECE, $alpha: .71);
+    border-radius: 50%;
+    transition: all .35s ease-in-out;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: relative;
+    z-index: 0;
+    transition: all .35s ease-in-out;
+  }
+
+  &:hover {
+    &::before {
+      background-color: rgba($color: darken($color-1, 15%), $alpha: .3);
+    }
+    &::after {
+      background-color: $color-2;
+      box-shadow: 0 3px 6px rgba($color: #000000, $alpha: .16);
+    }
+    img {
+      transform: scale(1.15);
+    }
+  }
+}
+
+.info {
+  display: block;
+  width: 60%;
+  li {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    color: white;
+    font-family: $font;
+    margin-bottom: 30px;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  
+  &-tit {
+    font-weight: 500;
+    margin-right: 24px;
+    font-size: 16px;
+    width: 74px;
+    line-height: 35px;
+  }
+  &-desc {
+    font-size: 15px;
+    font-weight: normal;
+    line-height: 35px;
+    display: inline-block;
+    width: calc(100% - (74px + 24px));
+    
+    &.list {
+      line-height: initial;
+
+      .list-item {
+        // margin-right: 10px;
+        &::after {
+          content: ",";
+          display: inline-block;
+          font-family: $font;
+          padding-left: 2px;
+          padding-right: 5px;
+        }
+        &:last-child {
+          &::after {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}

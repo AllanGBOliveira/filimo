@@ -67,19 +67,25 @@
     </div>
   </section>
 
-  <section class="test">
-
+  <section class="list-items">
+   <div class="container">
+      <About :context="content.about" />
+   </div>
   </section>
  </main>
 </template>
 
 <script>
 import conf from "../conf"
+import About from "../components/Home/About.vue"
 export default {
   name: 'Index',
     async asyncData({$content}) {
      const content = await $content(conf.CONTENT).fetch();
     return {content};
+  },
+  components: {
+    About
   },
 
   data() {
