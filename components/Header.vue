@@ -3,7 +3,7 @@
  <header>
    <nav class="navbar navbar-expand justify-content-center justify-content-xl-between">
     <b-navbar-brand  :to="{name: 'index'}">
-      <img srcset="/img/logo.png, /img/logo-2x.png 2x" src="/img/logo-2x.png" alt="Filimo">
+      <img  src="img/logo.png" alt="Filimo">
     </b-navbar-brand>
       <b-navbar-nav class="center-nav">
         <b-nav-item :to="{name: 'index'}" exact>Home</b-nav-item>
