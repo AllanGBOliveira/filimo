@@ -1,27 +1,27 @@
 <template>
  <main>
   <section class="parallax">
-    <div class="parallax-img" :style="{ 'background-image': `url(${imageSrc})` }"/>
+    <div class="parallax-img" :style="{ 'background-image': `url(${content.highlight.bg})` }"/>
     <div class="highlight">
-      <div class="container">
+      <div class="container my-row">
         <div class="thumb">
-          <img src="img/thumb.png" alt="">
+          <img :src="content.highlight.thumb" alt="">
         </div>
 
         <div class="content">
           <h2 class="show-title">
-            Breaking Bad: S3 E6
+           {{content.highlight.title}}
           </h2>
           <h3 class="show-category">
-              Series
+              {{content.highlight.category}}
           </h3>
          <div class="rate-star">
            <p class="rate-star-count">
-             {{rate}}
+             {{content.highlight.rate}}
            </p>
             <b-form-rating  v-model="rating" no-border inline  readonly precision="1"></b-form-rating>
             <div class="imdb-badge">
-              <span>{{imdbRate}}/10</span> <img src="img/imdb.png" alt="">
+              <span>{{content.highlight.imdbRate}}/10</span> <img src="img/imdb.png" alt="">
             </div>
          </div>
 
@@ -30,7 +30,7 @@
          </div>
 
          <ul class="categories">
-           <li v-for="(categorie, index) in categories" :key="index">
+           <li v-for="(categorie, index) in content.highlight.categories" :key="index">
              <nuxt-link  :to="{name: 'category/'+ categorie.slug}">
              {{categorie.name}}
              </nuxt-link>
@@ -38,10 +38,14 @@
          </ul>
          <div class="desc">
            <p>
-             A high school chemistry teacher diagnosed with inoperable lung cancer turns to manufacturing 
-              and selling methamphetamine in order to secure his family's future.
+             {{content.highlight.desc}}
            </p>
          </div>
+        </div>
+        <div class="action-buttons">
+          <nuxt-link class="btn-default" :to="{path:'movies-and-series/' + content.highlight.slug }">
+          <span>Play</span>  <font-awesome-icon :icon="['fas', 'play']"  />
+          </nuxt-link>
         </div>
       </div>
     </div>
@@ -50,53 +54,28 @@
 </template>
 
 <script>
+import conf from "../conf"
 export default {
   name: 'Index',
-  
+    async asyncData({$content}) {
+     const content = await $content(conf.CONTENT).fetch();
+    return {content};
+  },
+
   data() {
     return {
-      imageSrc: '',
       rating: 0,
-      rate: 9.4,
-
-      imdbRate: 9.5,
-
-      show: null,
-      time: new Date('December 17, 1995 00:43:00'),
       formatedTime: {
        time: '',
        format: '',
       },
-
-      categories: [
-        {
-          name: 'Action',
-          slug: 'action'
-        },
-         {
-          name: 'Crime',
-          slug: 'crime'
-        },
-         {
-          name: 'Drama',
-          slug: 'drama'
-        },
-         {
-          name: 'Fantasy',
-          slug: 'fantasy'
-        },
-        {
-          name: 'Thriller',
-          slug: 'thriller'
-        },
-      ]
     }
   },
 
+
   mounted() {
-    this.imageSrc = 'img/bg.png';
-    this.saceleRate(this.rate);
-    this.formatTime(this.time);
+    this.saceleRate(this.content.highlight.rate);
+    this.formatTime(new Date(this.content.highlight.time));
   },
 
   methods: {

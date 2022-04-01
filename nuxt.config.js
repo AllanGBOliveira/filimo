@@ -64,6 +64,12 @@ export default {
     // '@nuxtjs/stylelint-module',
   ],
 
+  loadingIndicator: {
+    name: 'fading-circle',
+    color: '#FCC537',
+    background: '#0B0E1E'
+  },
+
   // FontAwesome Icons
   fontawesome: {
     icons: {
@@ -100,6 +106,7 @@ export default {
       }
     }],
     '@nuxtjs/axios',
+    '@nuxt/content'
   ],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build

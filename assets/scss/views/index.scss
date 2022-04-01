@@ -46,7 +46,7 @@
     padding-top: 292px;
     color: white;
     
-    .container {
+    .my-row {
       display: flex;
       flex-wrap: wrap;
       gap: 24px;
@@ -181,6 +181,11 @@
         font-family: $font-2;
       }
     }
+
+    .action-buttons{
+      display: flex;
+      width: 100%;
+    }
   }
 }
 
@@ -188,7 +193,7 @@
   .parallax {
     .highlight {
       padding-top: 100px;
-      .container {
+      .my-row {
         justify-content: space-between;
       }
       .thumb {
@@ -204,7 +209,7 @@
 @include media-down(md) {
   .parallax {
     .highlight {
-      .container {
+      .my-row {
         justify-content: center;
       }
       .thumb {

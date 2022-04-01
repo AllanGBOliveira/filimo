@@ -1,0 +1,35 @@
+{
+  "highlight": {
+    "bg": "img/bg.png",
+    "thumb": "img/thumb.png",
+    "title": "Breaking Bad: S3 E6",
+    "category": "Series",
+    "rate": 9.4,
+    "imdbRate": 9.5,
+    "time": "Sun Dec 17 1995 00:43:00 GMT-0200 (Horário de Verão de Brasília)",
+   "categories": [
+      {
+        "name": "Action",
+        "slug": "action"
+      },
+       {
+        "name": "Crime",
+        "slug": "crime"
+      },
+       {
+        "name": "Drama",
+        "slug": "drama"
+      },
+       {
+        "name": "Fantasy",
+        "slug": "fantasy"
+      },
+      {
+        "name": "Thriller",
+        "slug": "thriller"
+      }
+    ],
+    "desc": "A high school chemistry teacher diagnosed with inoperable lung cancer turns to manufacturing and selling methamphetamine in order to secure his family's future.",
+    "slug": "breaking-bad"
+  }
+}
