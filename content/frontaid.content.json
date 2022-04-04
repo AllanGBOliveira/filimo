@@ -50,6 +50,62 @@
       "Jesse Plemons"
     ],
     "trailer": "https://www.youtube.com/watch?v=yAAphfWE3Vs",
-    "slug": "breaking-bad" 
-  }
+    "slug": "breaking-bad"
+  },
+  "seasons": [
+    [
+      {
+        "ep": {
+          "src": "img/ep-1.png"
+        }
+      },
+      {
+        "ep": {
+          "src": "img/ep-2.png"
+        }
+      },
+      {
+        "ep": {
+          "src": "img/ep-3.png"
+        }
+      },
+      {
+        "ep": {
+          "src": "img/ep-4.png"
+        }
+      },
+      {
+        "ep": {
+          "src": "img/ep-5.png"
+        }
+      }
+    ],
+    [
+      {
+        "ep": {
+          "src": "img/ep-1.png"
+        }
+      },
+      {
+        "ep": {
+          "src": "img/ep-2.png"
+        }
+      },
+      {
+        "ep": {
+          "src": "img/ep-3.png"
+        }
+      },
+      {
+        "ep": {
+          "src": "img/ep-4.png"
+        }
+      },
+      {
+        "ep": {
+          "src": "img/ep-5.png"
+        }
+      }
+    ]
+  ]
 }

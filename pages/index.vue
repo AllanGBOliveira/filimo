@@ -1,57 +1,54 @@
 <template>
  <main>
   <section class="parallax">
-    <div class="parallax-img" :style="{ 'background-image': `url(${content.highlight.bg})` }"/>
+    <div class="parallax-img" :style="{ 'background-image': `url(https://image.tmdb.org/t/p/original${content.backdrop_path})` }"/>
     <div class="highlight">
       <div class="container my-row">
         <div class="thumb">
-          <img :src="content.highlight.thumb" alt="">
+          <img :src="`https://image.tmdb.org/t/p/original${content.poster_path}`" alt="">
         </div>
 
         <div class="content">
           <h2 class="show-title">
-           {{content.highlight.title}}
+           {{content.title}}
           </h2>
           <h3 class="show-category">
-              {{content.highlight.category}}
+              {{content.type}}
           </h3>
-         <div class="rate-star">
+          <div class="rate-star">
            <p class="rate-star-count">
-             {{content.highlight.rate}}
+             {{content.vote_average}}
            </p>
             <b-form-rating  v-model="rating" no-border inline  readonly precision="1"></b-form-rating>
             <div class="imdb-badge">
-              <span>{{content.highlight.imdbRate}}/10</span> <img src="img/imdb.png" alt="">
+              <span>{{content.vote_average}}/10</span> <img src="img/imdb.png" alt="">
             </div>
          </div>
-
+         
          <div class="time-local">
-            <span>{{this.formatedTime.time + ' '+ this.formatedTime.format}}</span> <span>-</span> <span>USA</span>
+            <span>{{content.runtime + " Minutes"}}</span> <span v-show="content.production_companies">-</span> <span v-show="content.production_companies">{{content.production_companies[content.production_companies.length - 1].origin_country}}</span>
          </div>
-
-         <ul class="categories">
-           <li v-for="(categorie, index) in content.highlight.categories" :key="index">
-             <nuxt-link  :to="{name: 'category/'+ categorie.slug}">
-             {{categorie.name}}
-             </nuxt-link>
+            <ul class="categories">
+           <li v-for="(genre, index) in content.genres" :key="index">
+             <div class="cat">
+             {{genre.name}}
+             </div>
            </li>
-         </ul>
+          </ul>
          <div class="desc">
            <p>
-             {{content.highlight.desc}}
+             {{content.overview}}
            </p>
-         </div>
+         </div> 
         </div>
         <div class="action-buttons">
-          <nuxt-link class="btn-default" :to="{path:'movies-and-series/' + content.highlight.slug }">
+          <button class="btn-default">
           <span>Play</span>  <font-awesome-icon :icon="['fas', 'play']"  />
-          </nuxt-link>
-          
-          <label for="wish-list" class="wish-list btn-default transparent">
+          </button>
+           <label for="wish-list" class="wish-list btn-default transparent">
               <input type="checkbox" name="wish-list" id="wish-list" v-model="wishList">
               <span>Add to Wishlist</span> <font-awesome-icon :icon="[wishList?'fas':'far', 'bookmark']" />
           </label>
-
           <a href="img/thumb.png" class="btn-default transparent" download>
              <span>Download</span>  <font-awesome-icon :icon="['fas', 'cloud-download-alt']"  />
           </a>
@@ -68,24 +65,28 @@
   </section>
 
   <section class="list-items">
-   <div class="container">
-      <About :context="content.about" />
+   <div class="container main-row">
+     <About :context="content" />
+      <!-- 
+      <Episodes :episodes="content.seasons" /> -->
    </div>
   </section>
  </main>
 </template>
 
 <script>
-import conf from "../conf"
 import About from "../components/Home/About.vue"
+import Episodes from "../components/Home/Episodes.vue"
+// import { mapState } from 'vuex'
 export default {
   name: 'Index',
-    async asyncData({$content}) {
-     const content = await $content(conf.CONTENT).fetch();
-    return {content};
+  async asyncData (context) {
+    let content = await context.store.dispatch('show/load')
+    return { content }
   },
   components: {
-    About
+    About,
+    Episodes
   },
 
   data() {
@@ -97,13 +98,19 @@ export default {
        format: '',
       },
       wishList: false,
+      show: null,
     }
   },
 
+  // computed: {
+  //     ...mapState({
+  //     data: state => state.show.data,
+  //   }),
+  // },
 
   mounted() {
-    this.saceleRate(this.content.highlight.rate);
-    this.formatTime(new Date(this.content.highlight.time));
+    // this.saceleRate(this.content.imDbRating);
+    // this.formatTime(new Date(this.content.highlight.time));
   },
 
   methods: {
@@ -122,8 +129,6 @@ export default {
   },
 }
 </script>
-
-
 <style lang="scss">
   @import '~/assets/scss/views/index.scss';
 </style>

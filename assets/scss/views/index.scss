@@ -109,7 +109,7 @@
 
         li {
           display: inline-block;
-          a {
+          .cat {
             color: white;
             font-size: 14px;
             font-weight: 600;
@@ -124,17 +124,17 @@
             display: inline-block;
             text-align: center;
 
-            &:hover {
-              background-color: rgba($color-1, 0.15); 
-              color: darken($color:  $color-1, $amount: 10%);
-            }
+            // &:hover {
+            //   background-color: rgba($color-1, 0.15); 
+            //   color: darken($color:  $color-1, $amount: 10%);
+            // }
           }
         }
       }
 
       .desc {
         font-size: 16px;
-        font-weight: 600;
+        font-weight: 500;
         font-family: $font-2;
       }
     }
@@ -226,6 +226,12 @@
 .list-items {
   margin-top: 94px;
   position: relative;
+
+  .main-row {
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 138px;
+  }
   // z-index: 2;
   .tit {
     font-size: 20px;

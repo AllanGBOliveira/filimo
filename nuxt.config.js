@@ -61,6 +61,7 @@ export default {
   buildModules: [
     '@nuxtjs/fontawesome',
     '@nuxtjs/style-resources',
+    '@nuxtjs/router-extras'
     // '@nuxtjs/stylelint-module',
   ],
 
@@ -109,7 +110,6 @@ export default {
     '@nuxtjs/axios',
     '@nuxt/content'
   ],
-
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
   },
