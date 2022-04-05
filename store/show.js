@@ -23,14 +23,14 @@ export const actions = {
     do {
       random = Math.floor(Math.random() * 20);
       commit('SET_RANDOM', { random })
-      let tvShow = show.results.find(element => element.media_type === 'tv')
-      // id = show.results[state.random].id;
+      // let tvShow = show.results.find(element => element.media_type === 'tv')
+      id = show.results[state.random].id;
       // id = tvShow.id;
-      id = 1396
+      // id = 1396
       commit('SET_ID', { id })
-      // type = show.results[state.random].media_type;
+      type = show.results[state.random].media_type;
       // type = tvShow.media_type
-      type = 'tv'
+      // type = 'tv'
       commit('SET_TYPE', { type })
       store  = await this.$axios.$get(`https://api.themoviedb.org/3/${state.type}/${state.id}?api_key=6c4c0fe755a0101e47421d28b8f0e65d&language=en-US`)
       
