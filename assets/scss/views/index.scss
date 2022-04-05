@@ -281,3 +281,11 @@
    }
   }
 }
+
+@include media-down(md) {
+  .list-items {
+    .main-row {
+      row-gap: 50px;
+    }
+  }
+}

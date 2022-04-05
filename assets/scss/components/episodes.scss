@@ -16,6 +16,30 @@
       margin-right: 0;
       margin-bottom: 46px;
     }
+
+    .swiper-pagination {
+      width: 100% !important;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: -40px;
+      
+      &-bullet {
+        background-color: $color-1;
+        width: 16px;
+        height: 16px;
+        // opacity: 0;
+        transition: all .35s ease-in-out;
+        // &-active,
+        // &-active-main,
+        // &-active-next,
+        // &-active-next-next,
+        // &-active-prev,
+        // &-active-prev-prev  {
+        //   opacity: 1;
+        // }
+        
+      }
+    }
     .swiper-button {
       &-prev,
       &-next {

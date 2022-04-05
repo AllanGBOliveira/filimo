@@ -4,7 +4,7 @@
         Episodes
       </h2>
     <section class=" list-episodes" role="banner">
-      <div class="buttons">
+      <div class="buttons d-none d-sm-block">
         <button title="Next" class="swiper-button-prev" >
           <font-awesome-icon :icon="['fas', 'chevron-left']"  />
         </button>
@@ -31,7 +31,7 @@
         </div>
       </div>
       </div>
-      <div class="swiper-pagination d-none" />
+      <div class="swiper-pagination d-block d-sm-none" />
     </section>    
   </div>
 </template>
@@ -67,17 +67,23 @@ export default {
           nextEl: '.swiper-button-next',
           prevEl: '.swiper-button-prev'
         },
-        slidesPerView: 4,
         spaceBetween: 20,
         pagination: {
           el: '.swiper-pagination',
-            clickable: true
+            clickable: true,
+            dynamicBullets: true,
+        },
+        breakpoints: {
+          0: {
+            slidesPerView: 1.2,
+          },
+          767: {
+             slidesPerView: 3,
+          },
+          992: {
+             slidesPerView: 4,
+          }
         }
-        // breakpoints: {
-        //   992: {
-
-        //   }
-        // }
       }
     }
   },
