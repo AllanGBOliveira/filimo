@@ -28,12 +28,12 @@ body::-webkit-scrollbar-thumb {
 body {
   font-family: $font;
   font-weight: normal;
+  background: linear-gradient(to bottom, $color-2 862px, $color-3);
   // height: 3878px;
 }
 main {
   height: 3878px;
   display: block;
-  background: linear-gradient(to bottom, $color-2 862px, $color-3);
   position: relative;
 }
 .avatar-btn {

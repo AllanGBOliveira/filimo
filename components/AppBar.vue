@@ -51,14 +51,15 @@ export default {
         //   this.navHeight = this.outerHeight(nav)
         //  }
         let appBar = document.querySelector(".app-bar");
-        let main =  document.querySelector("main");
+        // let main =  document.querySelector("main");
+        let footer = document.querySelector("footer");
        if(window.matchMedia("(min-width: 1199.98px)").matches) {
             appBar.classList.remove("active")
-            main.style.paddingBottom = 0;
+            footer.style.marginBottom = 0;
            return false;
         }
          appBar.classList.add("active") 
-         main.style.paddingBottom = appBar.clientHeight + "px";
+        footer.style.marginBottom = appBar.clientHeight + "px";
         return true;
    }
   },

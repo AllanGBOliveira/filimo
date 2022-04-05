@@ -3,6 +3,8 @@
     <Header />
     <Nuxt />
     <Footer/>
+    <AppBar/>
+    <ScrollTop />
   </div>
 </template>
 
