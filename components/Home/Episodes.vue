@@ -24,7 +24,7 @@
         <div class="swiper-wrapper">
           <div :title="ep.name" v-for="(ep, i) in season.episodes" :key="i" class="swiper-slide">
           <button  class="ep-thumb">
-              <img :src="ep.still_path?`https://image.tmdb.org/t/p/original`+ ep.still_path: '/img/default.jpg'" class="img-cover">
+              <img :src="ep.still_path?`https://image.tmdb.org/t/p/original`+ ep.still_path: 'img/default.jpg'" class="img-cover">
           </button>
             <p class="ep-title">Episode {{ep.episode_number}}</p>
           </div>
