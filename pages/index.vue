@@ -13,7 +13,7 @@
            {{content.title}}
           </h2>
           <h3 class="show-category">
-              {{content.type}}
+              {{this.camelCase(type)}}
           </h3>
           <div class="rate-star">
            <p class="rate-star-count">
@@ -25,9 +25,9 @@
             </div>
          </div>
          
-         <div class="time-local">
+         <!-- <div class="time-local">
             <span>{{content.runtime + " Minutes"}}</span> <span v-show="content.production_companies">-</span> <span v-show="content.production_companies">{{content.production_companies[content.production_companies.length - 1].origin_country}}</span>
-         </div>
+         </div> -->
             <ul class="categories">
            <li v-for="(genre, index) in content.genres" :key="index">
              <div class="cat">
@@ -67,8 +67,8 @@
   <section class="list-items">
    <div class="container main-row">
      <About :context="content" />
-      <!-- 
-      <Episodes :episodes="content.seasons" /> -->
+      
+    <Episodes v-if="type == 'tv'"/>
    </div>
   </section>
  </main>
@@ -77,7 +77,7 @@
 <script>
 import About from "../components/Home/About.vue"
 import Episodes from "../components/Home/Episodes.vue"
-// import { mapState } from 'vuex'
+import { mapState } from 'vuex'
 export default {
   name: 'Index',
   async asyncData (context) {
@@ -102,11 +102,12 @@ export default {
     }
   },
 
-  // computed: {
-  //     ...mapState({
-  //     data: state => state.show.data,
-  //   }),
-  // },
+  computed: {
+      ...mapState({
+      type: state => state.show.type,
+      episodes: state => state.show.episodes,
+    }),
+  },
 
   mounted() {
     // this.saceleRate(this.content.imDbRating);
@@ -125,6 +126,11 @@ export default {
          this.formatedTime.format = "Hours";
      }
        this.formatedTime.time =   this.formatedTime.time + time.getMinutes()
+    },
+    camelCase(camel) {
+
+      camel = camel.charAt(0).toUpperCase() + camel.slice(1);
+      return camel;
     }
   },
 }

@@ -70,7 +70,6 @@ export default {
     this.thumb = `https://img.youtube.com/vi/${this.video.key}/maxresdefault.jpg`;
     this.item.src = `https://www.youtube.com/watch?v=${this.video.key}`;
     this.items.push(this.item);
-    console.log(this.crew);
   },
 }
 </script>
