@@ -19,7 +19,7 @@
           <button  class="item-thumb">
               <img :src="show.poster_path?`https://image.tmdb.org/t/p/w300`+ show.poster_path: 'img/default.jpg'" class="img-cover">
           </button>
-            <p class="item-title">Episode {{show.name}}</p>
+            <p class="item-title">{{show.name}}</p>
           </div>
         </div>
       </div>
