@@ -1,11 +1,11 @@
 <template>
  <main>
   <section class="parallax">
-    <div class="parallax-img" :style="{ 'background-image': `url(https://image.tmdb.org/t/p/w300${content.backdrop_path})` }"/>
+    <div  class="parallax-img" :style="{ 'background-image': `url(https://image.tmdb.org/t/p/w300${content.backdrop_path})` }" data-not-lazy/>
     <div class="highlight">
       <div class="container my-row">
         <div class="thumb">
-          <img :src="`https://image.tmdb.org/t/p/original${content.poster_path}`" alt="">
+          <img :src="`https://image.tmdb.org/t/p/original${content.poster_path}`" alt="" data-not-lazy >
         </div>
 
         <div class="content">

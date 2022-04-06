@@ -3,7 +3,7 @@
  <header>
    <nav class="navbar navbar-expand justify-content-center justify-content-xl-between">
     <b-navbar-brand  :to="{name: 'index'}">
-      <img  src="img/logo.png" alt="Filimo">
+      <img  src="img/logo.png" alt="Filimo" data-not-lazy>
     </b-navbar-brand>
       <b-navbar-nav class="center-nav">
         <b-nav-item >Home</b-nav-item>
@@ -21,7 +21,7 @@
         </form>
         <b-nav-item-dropdown right>
           <template #button-content>
-             <button class="avatar-btn"> <img src="https://picsum.photos/id/10/200/300" alt=""></button>
+             <button class="avatar-btn"> <img src="https://picsum.photos/id/10/200/300" alt="" data-not-lazy ></button >
           </template>
           <b-dropdown-item href="#">Profile</b-dropdown-item>
           <b-dropdown-item href="#">Sign Out</b-dropdown-item>

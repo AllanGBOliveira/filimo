@@ -27,7 +27,7 @@ export const actions = {
       // let tvShow = show.results.find(element => element.media_type === 'tv')
       id = show.results[state.random].id;
       // id = tvShow.id;
-      id = 1396
+      // id = 1396
       commit('SET_ID', { id })
       type = show.results[state.random].media_type;
       // type = tvShow.media_type
@@ -68,7 +68,7 @@ export const actions = {
   },
 
   async related({ commit, state }, params) {
-    let related = await this.$axios.$get(`https://api.themoviedb.org/3/${state.type}/${state.id}/recommendations?api_key=6c4c0fe755a0101e47421d28b8f0e65d&language=en-US&page=1`);
+    let related = await this.$axios.$get(`https://api.themoviedb.org/3/${state.type}/${state.id}/similar?api_key=6c4c0fe755a0101e47421d28b8f0e65d&language=en-US&page=1`);
 
     commit('SET_RELATED', {related});
   }

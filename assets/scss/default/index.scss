@@ -185,3 +185,10 @@ main {
 .cool-lightbox {
   z-index: 9999;
 }
+
+.isLoading {
+  opacity: 0;
+  img {
+    opacity: 0;
+  }
+}
