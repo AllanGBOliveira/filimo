@@ -6,11 +6,11 @@
       <img  src="img/logo.png" alt="Filimo">
     </b-navbar-brand>
       <b-navbar-nav class="center-nav">
-        <b-nav-item :to="{name: 'index'}" exact>Home</b-nav-item>
-        <b-nav-item :to="{name: 'movies-and-series'}">Movie & Series</b-nav-item>
-        <b-nav-item :to="{name: 'live'}">Live</b-nav-item>
-        <b-nav-item :to="{name: 'popular'}">Popular</b-nav-item>
-        <b-nav-item :to="{name: 'my-list'}">My List</b-nav-item>
+        <b-nav-item >Home</b-nav-item>
+        <b-nav-item >Movie & Series</b-nav-item>
+        <b-nav-item >Live</b-nav-item>
+        <b-nav-item >Popular</b-nav-item>
+        <b-nav-item >My List</b-nav-item>
       </b-navbar-nav>
       <b-navbar-nav class="right-nav">
         <form action="search" class="form-inline" v-on:submit.prevent="sendSearch()">

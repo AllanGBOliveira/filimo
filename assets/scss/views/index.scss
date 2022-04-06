@@ -223,7 +223,7 @@
  }
 }
 
-.list-items {
+.list-sections {
   margin-top: 94px;
   position: relative;
 
@@ -283,9 +283,116 @@
 }
 
 @include media-down(md) {
-  .list-items {
+  .list-sections {
     .main-row {
       row-gap: 50px;
     }
+  }
+}
+
+.list-items {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  .buttons {
+    display: block;
+    margin-left: auto;
+    margin-right: 0;
+    margin-bottom: 46px;
+  }
+
+  .swiper-pagination {
+    width: 100% !important;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -40px;
+    
+    &-bullet {
+      background-color: $color-1;
+      margin-right: 2px;// opacity: 0;
+      transition: all .35s ease-in-out;
+
+      &:last-child {
+        margin-right: 0;
+      }
+      // &-active,
+      // &-active-main,
+      // &-active-next,
+      // &-active-next-next,
+      // &-active-prev,
+      // &-active-prev-prev  {
+      //   opacity: 1;
+      // }
+      
+    }
+  }
+  .swiper-button {
+    &-prev,
+    &-next {
+      padding: 0;
+      border: 1px solid white;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      font-size: 15px;
+      color: white;
+      background-color: rgba($color: white, $alpha: .34);
+      top: 0;
+      margin: 0;
+      position: initial;
+      display: inline-flex;
+
+      &:not(.disabled) {
+        &:hover {
+          color: #23C7AC;
+          border-color: #23C7AC;
+        }
+      }
+      
+      &::after {
+        content: "";
+        display: none;
+      }
+    }
+    &-prev {
+      padding-right: 2px;
+    }
+    &-next {
+      padding-left: 2px;
+    }
+  }
+
+}
+
+.item-thumb {
+  width: 100%;
+  border: 0;
+  display: inline-block;
+  padding: 0;
+  overflow: hidden;
+  border-radius: 10px;
+  background-color: transparent;
+  box-shadow: 0 3px 6px rgba($color: #000000, $alpha: .16);
+
+  img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.item-title {
+  font-size: 16px;
+  font-weight: 500;
+  color: white;
+  text-align: center;
+}
+
+.swiper-slide {
+  opacity: 1;
+  transition: all .35s ease-in-out;
+  &.fetching {
+    opacity: 0;
   }
 }

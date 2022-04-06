@@ -3,7 +3,7 @@
       <h2 class="tit">
         Episodes
       </h2>
-    <section class=" list-episodes" role="banner">
+    <section class="list-items" role="banner">
       <div class="buttons d-none d-sm-block">
         <button title="Next" class="swiper-button-prev" >
           <font-awesome-icon :icon="['fas', 'chevron-left']"  />
@@ -22,16 +22,16 @@
       </div>
       <div v-swiper:swiperBanner="swiperOptions" class="swiper-episodes swiper-container">
         <div class="swiper-wrapper">
-          <div :title="ep.name" v-for="(ep, i) in season.episodes" :key="i" class="swiper-slide">
-          <button  class="ep-thumb">
-              <img :src="ep.still_path?`https://image.tmdb.org/t/p/original`+ ep.still_path: 'img/default.jpg'" class="img-cover">
+          <div :title="ep.name" v-for="(ep, i) in season.episodes" :key="i" class="swiper-slide" :class="isLoading?'fetching': null">
+          <button  class="item-thumb">
+              <img :src="ep.still_path?`https://image.tmdb.org/t/p/w300`+ ep.still_path: 'img/default.jpg'" class="img-cover">
           </button>
-            <p class="ep-title">Episode {{ep.episode_number}}</p>
+            <p class="item-title">Episode {{ep.episode_number}}</p>
           </div>
         </div>
       </div>
       </div>
-      <div class="swiper-pagination d-block d-sm-none" />
+      <div id="ep-pagination" class="swiper-pagination d-block d-sm-none" />
     </section>    
   </div>
 </template>
@@ -46,9 +46,10 @@ SwiperCore.use([Navigation, Pagination, Lazy, Autoplay, Keyboard, A11y])
 export default {
   name: "Episodes",
     async fetch () {
+      this.isLoading = true;
       this.currentSeason = this.data.seasons[0].season_number;
      await this.$store.dispatch('show/tv', {season_number: this.currentSeason }).then( () => {
-       this.loading = false;
+       this.isLoading = false;
      });
   },
 
@@ -58,8 +59,8 @@ export default {
 
   data() {
     return {
+        isLoading: false,
         currentSeason : null,
-        eps: [ '/img/ep-1.png', '/img/ep-3.png', '/img/ep-4.png' ],
         swiperOptions: {
         keyboard: true,
         speed: 600,
@@ -69,13 +70,15 @@ export default {
         },
         spaceBetween: 20,
         pagination: {
-          el: '.swiper-pagination',
+          el: '#ep-pagination',
             clickable: true,
-            dynamicBullets: true,
         },
         breakpoints: {
           0: {
             slidesPerView: 1.2,
+          },
+           575: {
+            slidesPerView: 2.2,
           },
           767: {
              slidesPerView: 3,
@@ -93,16 +96,17 @@ export default {
       data: state => state.show.data,
     }),
   },
-  mounted() {
-    console.log(this.data);
-  },
+  // mounted() {
+  //   console.log(this.data);
+  // },
 
   methods: {
     async changeSeason(season) {
       if(this.currentSeason !== season) {
-      this.currentSeason = season;
+        this.isLoading = true;
+        this.currentSeason = season;
         await this.$store.dispatch('show/tv', {season_number: this.currentSeason }).then( () => {
-       this.loading = false;
+       this.isLoading = false;
         });
       }
     }

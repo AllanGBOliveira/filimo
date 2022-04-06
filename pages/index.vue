@@ -1,7 +1,7 @@
 <template>
  <main>
   <section class="parallax">
-    <div class="parallax-img" :style="{ 'background-image': `url(https://image.tmdb.org/t/p/original${content.backdrop_path})` }"/>
+    <div class="parallax-img" :style="{ 'background-image': `url(https://image.tmdb.org/t/p/w300${content.backdrop_path})` }"/>
     <div class="highlight">
       <div class="container my-row">
         <div class="thumb">
@@ -64,11 +64,11 @@
     </div>
   </section>
 
-  <section class="list-items">
+  <section class="list-sections">
    <div class="container main-row">
-     <About :context="content" />
-      
+    <About :context="content" />
     <Episodes v-if="type == 'tv'"/>
+    <Related/>
    </div>
   </section>
  </main>
@@ -77,6 +77,7 @@
 <script>
 import About from "../components/Home/About.vue"
 import Episodes from "../components/Home/Episodes.vue"
+import Related from "../components/Home/Related.vue"
 import { mapState } from 'vuex'
 export default {
   name: 'Index',
@@ -86,7 +87,8 @@ export default {
   },
   components: {
     About,
-    Episodes
+    Episodes,
+    Related
   },
 
   data() {

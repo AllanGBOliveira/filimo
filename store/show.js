@@ -10,11 +10,12 @@ export const state = () => ({
   cast: {},
   crew: {},
   season: {},
-  episode: {}
+  episode: {},
+  related: {}
 })
 
 export const actions = {
-  async load({ commit , state}, params) {
+  async load({ commit, state }, params) {
     let show = await this.$axios.$get(`https://api.themoviedb.org/3/trending/all/day?api_key=6c4c0fe755a0101e47421d28b8f0e65d`);
     let store;
     let type;
@@ -32,38 +33,46 @@ export const actions = {
       // type = tvShow.media_type
       type = 'tv'
       commit('SET_TYPE', { type })
-      store  = await this.$axios.$get(`https://api.themoviedb.org/3/${state.type}/${state.id}?api_key=6c4c0fe755a0101e47421d28b8f0e65d&language=en-US`)
-      
+      store = await this.$axios.$get(`https://api.themoviedb.org/3/${state.type}/${state.id}?api_key=6c4c0fe755a0101e47421d28b8f0e65d&language=en-US`)
+
     } while (!store.backdrop_path);
 
     let video = await this.$axios.$get(`https://api.themoviedb.org/3/${state.type}/${state.id}/videos?api_key=6c4c0fe755a0101e47421d28b8f0e65d&language=en-US`);
     video = video.results.find(element => element.type === 'Trailer')
 
     let credits = await this.$axios.$get(`https://api.themoviedb.org/3/${state.type}/${state.id}/credits?api_key=6c4c0fe755a0101e47421d28b8f0e65d&language=en-US`)
-    let cast  = credits.cast.filter(element => element.order <=10)
+    let cast = credits.cast.filter(element => element.order <= 10)
 
-    let crew  = credits.crew.filter((element, index) => index <=6)
+    let crew = credits.crew.filter((element, index) => index <= 6)
 
     commit('SET_DATA', { store })
     commit('SET_VIDEO', { video })
     commit('SET_CREDITS', { credits })
     commit('SET_CAST', { cast })
     commit('SET_CREW', { crew })
-    console.log(store);
+    // console.log(store);
     return store
   },
 
-  async tv({ commit , state}, params) {
+  async tv({ commit, state }, params) {
     let season_number = params.season_number;
     let episode_number = 1;
     let season = await this.$axios.$get(`https://api.themoviedb.org/3/tv/${state.id}/season/${season_number}?api_key=6c4c0fe755a0101e47421d28b8f0e65d&language=en-US`);
     let episode = await this.$axios.$get(`https://api.themoviedb.org/3/tv/${state.id}/season/${season_number}/episode/${episode_number}?api_key=6c4c0fe755a0101e47421d28b8f0e65d&language=en-US`);
-    
+
 
     commit('SET_SEASON', { season });
     commit('SET_EPISODE', { episode });
-    
+
     return season;
+  },
+
+  async related({ commit, state }, params) {
+    let related = await this.$axios.$get(`https://api.themoviedb.org/3/${state.type}/${state.id}/recommendations?api_key=6c4c0fe755a0101e47421d28b8f0e65d&language=en-US&page=1`);
+
+    console.log(related);
+
+    commit('SET_RELATED', {related});
   }
 }
 
@@ -97,5 +106,8 @@ export const mutations = {
   },
   SET_EPISODE(state, { episode }) {
     state.episode = episode
+  },
+  SET_RELATED(state, { related }) {
+    state.related = related
   }
 }
