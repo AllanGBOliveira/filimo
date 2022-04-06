@@ -73,7 +73,7 @@
 
         <div class="col-lg-4 last-item">
           <div class="footer-logo">
-            <img src="img/logo.png" alt="">
+            <img src="img/logo.png" alt="Logo">
           </div>
           <div class="info">
             <p>

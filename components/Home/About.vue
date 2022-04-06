@@ -9,7 +9,7 @@
     </CoolLightBox>
 
     <button class="thumb" @click="index = 0">
-     <img :src="thumb" alt="">
+     <img :src="thumb" alt="Thumb">
      <div class="play-icon"><font-awesome-icon :icon="['fas', 'play']"  /></div>
     </button>
 

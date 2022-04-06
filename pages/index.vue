@@ -5,7 +5,7 @@
     <div class="highlight">
       <div class="container my-row">
         <div class="thumb">
-          <img :src="`https://image.tmdb.org/t/p/original${content.poster_path}`" alt="" data-not-lazy >
+          <img :src="`https://image.tmdb.org/t/p/original${content.poster_path}`" :alt="content.title" data-not-lazy >
         </div>
 
         <div class="content">
@@ -21,7 +21,7 @@
            </p>
             <b-form-rating  v-model="rating" no-border inline  readonly precision="1"></b-form-rating>
             <div class="imdb-badge">
-              <span>{{content.vote_average}}/10</span> <img src="img/imdb.png" alt="">
+              <span>{{content.vote_average}}/10</span> <img src="img/imdb.png" alt="Imdb" data-not-lazy>
             </div>
          </div>
          
@@ -69,6 +69,7 @@
     <About :context="content" />
     <Episodes v-if="type == 'tv'"/>
     <Related/>
+    <Comments/>
    </div>
   </section>
  </main>
@@ -78,6 +79,7 @@
 import About from "../components/Home/About.vue"
 import Episodes from "../components/Home/Episodes.vue"
 import Related from "../components/Home/Related.vue"
+import Comments from "../components/Home/Comments.vue"
 import { mapState } from 'vuex'
 export default {
   name: 'Index',
@@ -88,7 +90,8 @@ export default {
   components: {
     About,
     Episodes,
-    Related
+    Related,
+    Comments
   },
 
   data() {

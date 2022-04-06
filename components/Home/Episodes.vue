@@ -63,7 +63,6 @@ export default {
         currentSeason : null,
         swiperOptions: {
         keyboard: true,
-        speed: 600,
         navigation: {
           nextEl: '.swiper-button-next',
           prevEl: '.swiper-button-prev'

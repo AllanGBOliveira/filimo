@@ -21,7 +21,7 @@
         </form>
         <b-nav-item-dropdown right>
           <template #button-content>
-             <button class="avatar-btn"> <img src="https://picsum.photos/id/10/200/300" alt="" data-not-lazy ></button >
+             <button class="avatar-btn"> <img src="https://picsum.photos/id/10/200/300" alt="Avatar" data-not-lazy ></button >
           </template>
           <b-dropdown-item href="#">Profile</b-dropdown-item>
           <b-dropdown-item href="#">Sign Out</b-dropdown-item>
